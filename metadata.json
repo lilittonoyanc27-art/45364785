@@ -1,0 +1,6 @@
+{
+  "name": "Paso a Paso — Испанский и Армянский",
+  "description": "Интерактивные игры по испанскому языку с переводом на армянский по клику: Поле чудес по прошедшим временам и математические задачи в реальных ситуациях.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

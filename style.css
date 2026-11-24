@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: "Plus Jakarta Sans", "Noto Sans Armenian", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-image: radial-gradient(circle at top left, rgba(254, 240, 138, 0.45), transparent 42%),
+      radial-gradient(circle at top right, rgba(253, 186, 116, 0.35), transparent 40%),
+      radial-gradient(circle at bottom center, rgba(187, 247, 208, 0.4), transparent 48%);
+    background-attachment: fixed;
+  }
+
+  .font-mono-num {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid #ea580c;
+    outline-offset: 2px;
+  }
+}
+
+.word-tile-wrap {
+  perspective: 700px;
+}
+
+.word-tile {
+  transform-style: preserve-3d;
+  transition: transform 440ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.word-tile.is-revealed {
+  transform: rotateY(180deg);
+}
+
+.word-tile-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.word-tile-back {
+  transform: rotateY(180deg);
+}
+
+.spanish-clickable {
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.spanish-clickable:hover .spanish-underline {
+  text-decoration-color: #ea580c;
+}
+
+.spanish-underline {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(234, 88, 12, 0.55);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+.fade-in-fast {
+  animation: fadeInFast 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInFast {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wheel-pointer {
+  transform-origin: 50% 10%;
+  transition: transform 90ms ease-out;
+}
+
+.wheel-pointer.is-ticking {
+  transform: rotate(-16deg);
+}
+
+.quiz-progress {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.quiz-progress::-webkit-progress-bar {
+  background-color: #fef3c7;
+  border-radius: 9999px;
+}
+
+.quiz-progress::-webkit-progress-value {
+  background-image: linear-gradient(90deg, #f97316, #facc15, #16a34a);
+  border-radius: 9999px;
+  transition: width 250ms ease;
+}
+
+.quiz-progress::-moz-progress-bar {
+  background-image: linear-gradient(90deg, #f97316, #facc15, #16a34a);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-tile,
+  .fade-in-fast,
+  .wheel-pointer {
+    animation: none;
+    transition: none;
+  }
+}
